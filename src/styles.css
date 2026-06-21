@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background: #2c1810;
+    padding: 20px;
+}
+
+.links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.page {
+    min-height: 100vh;
+    color: white;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    padding: 50px;
+}
+
+footer {
+    background: #2c1810;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
