@@ -2,7 +2,16 @@ function Blog() {
     return (
         <div className="page blog">
             <div className="overlay">
-                <h1>Somali Food Culture</h1>
+                <h1>The Kac Kac Blog</h1>
+
+                <article className="blog-post">
+                    <h2>The Art of Somali Spiced Tea</h2>
+                    <span className="date">June 15, 2026</span>
+                    <p>
+                        What makes a perfect cup of Shaah Cadays? It is all in the timing of the cardamom
+                        and ginger fusion. In this post, we look at why spice balance matters to tea culture.
+                    </p>
+                </article>
             </div>
         </div>
     );
