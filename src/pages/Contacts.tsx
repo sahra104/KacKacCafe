@@ -10,6 +10,14 @@ function Contacts() {
                     <p>📞 <strong>Phone:</strong> +254 700 000000</p>
                     <p>📧 <strong>Email:</strong> info@kackaccafe.com</p>
                 </div>
+
+                <form className="contact-form">
+                    <h3>Send us a Message</h3>
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <textarea placeholder="Your Message" rows={4} required></textarea>
+                    <button type="submit">Submit Message</button>
+                </form>
             </div>
         </div>
     );
