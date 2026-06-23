@@ -18,6 +18,11 @@ function Menu() {
                     <h3>Sambuus</h3>
                     <p>Ksh 200</p>
                 </div>
+
+                <div className="card">
+                    <h3>Shaah Cadays</h3>
+                    <p>Ksh 150</p>
+                </div>
             </div>
         </div>
     );
