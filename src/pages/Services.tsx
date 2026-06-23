@@ -14,6 +14,10 @@ function Services() {
                         <h3>Authentic Catering</h3>
                         <p>Bring the unique tastes of traditional Somali pastries and spiced tea to your private events.</p>
                     </div>
+                    <div className="service-item">
+                        <h3>Custom Spice Blending</h3>
+                        <p>Take our heritage home. Purchase custom-packaged cardamom, cinnamon, and ginger tea blends.</p>
+                    </div>
                 </div>
             </div>
         </div>
