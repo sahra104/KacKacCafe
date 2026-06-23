@@ -3,7 +3,7 @@ function Footer() {
         <footer>
             <h3>Kac Kac Café</h3>
             <p>Authentic Somali Pastries & Tea</p>
-            <p>Eastleigh, Nairobi</p>
+            <p>Lavington, Nairobi</p>
         </footer>
     );
 }
