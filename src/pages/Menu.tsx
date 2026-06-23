@@ -27,6 +27,11 @@ function Menu() {
                     <p>Authentic spiced tea brewed with milk, cardamom, and ginger.</p>
                     <p>Ksh 150</p>
                 </div>
+                <div className="card">
+                    <h3>Qaxwo (Somali Coffee)</h3>
+                    <p>Rich coffee gently spiced with hints of ginger and cardamom.</p>
+                    <p>Ksh 180</p>
+                </div>
             </div>
         </div>
     );
