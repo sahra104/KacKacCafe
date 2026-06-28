@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Kac Kac Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fcf8f2;
-            color: #4a3b32;
-        }
-
-        .navbar {
-            background-color: #5c4033 !important;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: #fdfaf6 !important;
-        }
-
+        body { font-family: 'Poppins', sans-serif; background-color: #fcf8f2; color: #4a3b32; }
+        .navbar { background-color: #5c4033 !important; }
+        .navbar-brand, .nav-link { color: #fdfaf6 !important; }
         .gallery-img {
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -32,27 +18,16 @@
             width: 100%;
             border-radius: 8px;
         }
-
-        .gallery-img:hover {
-            transform: scale(1.03);
-        }
-
-        footer {
-            background-color: #3e2a20;
-            color: #d7ccc8;
-            padding: 20px 0;
-            text-align: center;
-        }
+        .gallery-img:hover { transform: scale(1.03); }
+        footer { background-color: #3e2a20; color: #d7ccc8; padding: 20px 0; text-align: center; }
     </style>
 </head>
-
 <body>
 
     <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">☕ Kac Kac Café</a>
-            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -72,27 +47,39 @@
     <main class="container my-5 py-4">
         <div class="text-center mb-5">
             <h1 class="fw-bold text-dark">Visual Highlights & Showcase</h1>
-            <p class="text-muted lead">Filter through live snapshots of our kitchens and prepared orders.</p>
-
+            <p class="text-muted lead">Filter through snapshots of our culture, kitchen, and prepared orders.</p>
             <div class="mt-4">
-                <button class="btn btn-outline-dark mx-1 active" onclick="filterGallery('all')">Show All</button>
-                <button class="btn btn-outline-dark mx-1" onclick="filterGallery('pastry')">Pastries</button>
-                <button class="btn btn-outline-dark mx-1" onclick="filterGallery('beverage')">Beverages</button>
+                <button class="btn btn-outline-dark mx-1 active" onclick="filterGallery('all', event)">Show All</button>
+                <button class="btn btn-outline-dark mx-1" onclick="filterGallery('pastry', event)">Pastries</button>
+                <button class="btn btn-outline-dark mx-1" onclick="filterGallery('beverage', event)">Beverages</button>
+                <button class="btn btn-outline-dark mx-1" onclick="filterGallery('culture', event)">Culture</button>
             </div>
         </div>
 
         <div class="row g-4" id="galleryContainer">
-            <div class="col-md-4 gallery-item pastry">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=400"
-                    class="gallery-img shadow-sm" alt="Crisp morning pastries">
+            <!-- gallery1.jpg: Somali woman in traditional dirac garment -->
+            <div class="col-md-4 gallery-item culture">
+                <img src="assets/gallery1.jpg" class="gallery-img shadow-sm" alt="Somali traditional dirac dress and accessories">
             </div>
+            <!-- gallery2.jpg: Somali woman weaving traditional colourful baskets -->
+            <div class="col-md-4 gallery-item culture">
+                <img src="assets/gallery2.jpg" class="gallery-img shadow-sm" alt="Somali woman weaving traditional woven baskets">
+            </div>
+            <!-- gallery3.jpg: glass mug of milky spiced tea on white table -->
             <div class="col-md-4 gallery-item beverage">
-                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=400"
-                    class="gallery-img shadow-sm" alt="Hot brewed house tea">
+                <img src="assets/gallery3.jpg" class="gallery-img shadow-sm" alt="Warm spiced Somali milk tea in glass mug">
             </div>
+            <!-- gallery4.jpg: spiced tea being poured from black teapot with cardamon & cinnamon -->
+            <div class="col-md-4 gallery-item beverage">
+                <img src="assets/gallery4.jpg" class="gallery-img shadow-sm" alt="Shaah Cadays poured from teapot with cardamon and cinnamon">
+            </div>
+            <!-- gallery5.jpg: tiered display of assorted Somali biscuits and cookies -->
             <div class="col-md-4 gallery-item pastry">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=400"
-                    class="gallery-img shadow-sm" alt="Fresh prepared local crepes">
+                <img src="assets/gallery5.jpg" class="gallery-img shadow-sm" alt="Tiered display of assorted Somali biscuits and sweets">
+            </div>
+            <!-- kackac.jpg reused: fried pastries with brass dallah teapot -->
+            <div class="col-md-4 gallery-item pastry">
+                <img src="assets/kackac.jpg" class="gallery-img shadow-sm" alt="Golden fried Kac Kac pastries with traditional teapot">
             </div>
         </div>
     </main>
@@ -105,23 +92,15 @@
     </footer>
 
     <script>
-        function filterGallery(category) {
+        function filterGallery(category, event) {
             const items = document.querySelectorAll('.gallery-item');
             items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
             });
-
-            // Update active styling on button selection triggers
-            const buttons = document.querySelectorAll('.btn-outline-dark');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.btn-outline-dark').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
