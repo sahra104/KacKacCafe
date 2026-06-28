@@ -1,62 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Menu | Kac Kac Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fcf8f2;
-            color: #4a3b32;
-        }
-
-        .navbar {
-            background-color: #5c4033 !important;
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: #fdfaf6 !important;
-        }
-
-        .card {
-            border: none;
-            border-radius: 12px;
-            transition: transform 0.2s;
-            background-color: #fff;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .price-tag {
-            color: #d2691e;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            background-color: #3e2a20;
-            color: #d7ccc8;
-            padding: 20px 0;
-            text-align: center;
-        }
+        body { font-family: 'Poppins', sans-serif; background-color: #fcf8f2; color: #4a3b32; }
+        .navbar { background-color: #5c4033 !important; }
+        .navbar-brand, .nav-link { color: #fdfaf6 !important; }
+        .nav-link:hover { color: #e1b89d !important; }
+        .card { border: none; border-radius: 12px; transition: transform 0.2s; background-color: #fff; }
+        .card:hover { transform: translateY(-5px); }
+        .card-img-top { height: 220px; object-fit: cover; border-radius: 12px 12px 0 0; }
+        .price-tag { color: #d2691e; font-weight: 700; font-size: 1.2rem; }
+        #searchInput { border: 2px solid #5c4033; border-radius: 8px; padding: 10px 16px; width: 100%; max-width: 400px; }
+        #searchInput:focus { outline: none; border-color: #d2691e; box-shadow: 0 0 0 3px rgba(210,105,30,0.15); }
+        .no-results { display: none; text-align: center; color: #999; padding: 40px 0; font-size: 1.1rem; }
+        footer { background-color: #3e2a20; color: #d7ccc8; padding: 20px 0; text-align: center; }
     </style>
 </head>
-
 <body>
-
     <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">☕ Kac Kac Café</a>
-            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -77,46 +46,54 @@
         <div class="text-center mb-5">
             <h1 class="fw-bold text-dark">Traditional Delicacies & Pastries</h1>
             <p class="text-muted lead">Perfectly paired with our authentic hot house brews.</p>
+            <div class="d-flex justify-content-center mt-4">
+                <input type="text" id="searchInput" placeholder="🔍 Search menu items..." oninput="filterMenu()">
+            </div>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-4 col-sm-6">
+        <div class="row g-4" id="menuGrid">
+            <div class="col-md-4 col-sm-6 menu-item" data-name="authentic kac kac crispy somali pastry fried">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=400"
-                        class="card-img-top rounded-top" alt="Traditional Kac Kac pastry">
+                    <img src="assets/kackac.jpg" class="card-img-top" alt="Authentic Kac Kac Somali fried pastry">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Authentic Kac Kac</h5>
-                        <p class="card-text text-secondary">Traditional crispy Somali doughnut lightly sweet, golden,
-                            and freshly fried every morning.</p>
+                        <p class="card-text text-secondary">Traditional crispy Somali pastry lightly sweet, golden, and freshly fried every morning.</p>
                         <div class="price-tag">KES 150</div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 menu-item" data-name="sweet malawax crepe honey cardamon pancake">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=400"
-                        class="card-img-top rounded-top" alt="Malawax item illustration">
+                    <img src="assets/malawax.jpg" class="card-img-top" alt="Sweet Malawax Somali crepe with honey">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Sweet Malawax</h5>
-                        <p class="card-text text-secondary">Delicate, crepe-like sweet pan-fried bread subtly infused
-                            with cardamon and drizzled lightly with honey.</p>
+                        <p class="card-text text-secondary">Delicate crepe-like sweet pan-fried bread subtly infused with cardamon and drizzled lightly with honey.</p>
                         <div class="price-tag">KES 200</div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 menu-item" data-name="sambuus savoury pastry meat triangle fried">
                 <div class="card h-100 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=400"
-                        class="card-img-top rounded-top" alt="Signature Somali Shaah">
+                    <img src="assets/sambuus.jpg" class="card-img-top" alt="Crispy Somali Sambuus with spiced filling">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Sambuus (Savoury Pastry)</h5>
+                        <p class="card-text text-secondary">Crispy triangle pastries stuffed with spiced minced meat, onion, and fresh herbs — a café favourite.</p>
+                        <div class="price-tag">KES 100</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 menu-item" data-name="shaah cadays spiced tea cardamon ginger milk">
+                <div class="card h-100 shadow-sm">
+                    <img src="assets/coffee.jpg" class="card-img-top" alt="Shaah Cadays Somali spiced milk tea">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Shaah Cadays (Spiced Tea)</h5>
-                        <p class="card-text text-secondary">Rich black loose tea leaves slow-steeped with whole
-                            cardamon, cloves, ginger, and condensed milk.</p>
+                        <p class="card-text text-secondary">Rich black loose tea leaves slow-steeped with whole cardamon, cloves, ginger, and condensed milk.</p>
                         <div class="price-tag">KES 120</div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="no-results" id="noResults">No menu items match your search.</div>
     </main>
 
     <footer>
@@ -126,7 +103,23 @@
         </div>
     </footer>
 
+    <script>
+        function filterMenu() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.menu-item');
+            let visible = 0;
+            items.forEach(item => {
+                const keywords = item.getAttribute('data-name');
+                if (keywords.includes(query)) {
+                    item.style.display = 'block';
+                    visible++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
